@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <body>
+
+<div class="container">
+
+    <h1>User Registration</h1>
+
+    <form id="registrationForm">
+
+        <!-- All your input fields and labels here -->
+    <form id="registrationForm">
+
+        <div>
+            <label for="username">Username:</label>
+            <input
+                type="text"
+                id="username"
+                name="username"
+                required
+            >
+        </div>
+
+        <br>
+
+        <div>
+            <label for="email">Email:</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                required
+            >
+        </div>
+
+        <br>
+
+        <div>
+            <label for="password">Password:</label>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                required
+            >
+        </div>
+
+        <br>
+
+        <div>
+            <label for="confirm_password">Confirm Password:</label>
+            <input
+                type="password"
+                id="confirm_password"
+                name="confirm_password"
+                required
+            >
+        </div>
+
+        <br>
+
+        <div>
+            <label for="phone_number">Phone Number:</label>
+            <input
+        
+                type="tel"
+                id="phone_number"
+                name="phone_number"
+                maxlength="10"
+                required
+            >
+        </div>
+
+        <br>
+        <div>
+    <label for="roll_number">Roll Number:</label>
+    <input
+        type="text"
+        id="roll_number"
+        name="roll_number"
+        maxlength="10"
+        required
+    >
+</div>
+
+<br>
+
+        <div>
+            <label for="branch">Branch:</label>
+
+            <select id="branch" name="branch" required>
+
+                <option value="">Select Branch</option>
+
+                <option value="CSE">CSE</option>
+
+                <option value="AIML">AIML</option>
+
+                <option value="AIDS">AIDS</option>
+
+            </select>
+
+        </div>
+
+        <br>
+
+        <div>
+            <input type="submit" value="Register">
+        </div>
+
+        <br>
+
+        <div>
+            <a href="login.html">Already have an account? Login here</a>
+        </div>
+
+    </form>
+
+    <script>
+
+window.onload = function () {
+    document.getElementById("registrationForm").reset();
+};
+
+document.getElementById("registrationForm").addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    let username = document.getElementById("username").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+    let confirm = document.getElementById("confirm_password").value;
+    let phone = document.getElementById("phone_number").value;
+    let roll = document.getElementById("roll_number").value;
+
+    
+    if(password !== confirm){
+        alert("Passwords do not match!");
+        return;
+    }
+
+    if(phone.length != 10 || isNaN(phone)){
+        alert("Phone Number must contain exactly 10 digits.");
+        return;
+    }
+
+    
+    let rollPattern = /^[a-zA-Z0-9]+$/;
+
+    if(!rollPattern.test(roll)){
+        alert("Roll Number must be alphanumeric.");
+        return;
+    }
+    window.location.href = "success.html";
+
+});
+
+window.addEventListener("pageshow", function () {
+    document.getElementById("registrationForm").reset();
+});
+
+</script>
+
+</body>
+</html>
